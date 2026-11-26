@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Todos os trabalhos – Gustavo Ribeiro Thon</title>
+  <meta name="description" content="Vídeos, fotografias e desenhos de Gustavo Ribeiro Thon.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <header class="topo">
+    <a class="logo" href="index.html">Gustavo Ribeiro Thon</a>
+    <nav aria-label="Principal">
+      <a href="#videos">Vídeos</a>
+      <a href="#fotos-e-desenhos">Fotos e desenhos</a>
+      <a href="index.html">Início</a>
+    </nav>
+  </header>
+
+  <main id="inicio">
+
+    <section class="hero">
+      <h1>TODOS OS<br>TRABALHOS.</h1>
+      <p class="hero-texto">Vídeos, fotografias e desenhos num só lugar.</p>
+      <a class="botao" href="index.html">Voltar ao início</a>
+    </section>
+
+    <!-- ============ VÍDEOS ============ -->
+    <section id="videos" class="secao">
+      <h2>Vídeos</h2>
+      <ul class="lista-projetos">
+
+        <!-- Para adicionar um vídeo: copia um bloco <li> ... </li> e cola por baixo.
+             href = link do vídeo | src = imagem de capa -->
+
+        <li>
+          <a href="#" class="projeto" target="_blank" rel="noopener">
+            <span class="projeto-capa video">
+              <img src="imagens/exemplo.svg" alt="Capa do vídeo">
+            </span>
+            <span class="projeto-info">
+              <span class="projeto-ano">2025</span>
+              <span class="projeto-nome">Nome do vídeo</span>
+              <span class="projeto-desc">Uma linha a explicar o que é e o que fizeste.</span>
+              <span class="projeto-tags">Vídeo, Edição</span>
+            </span>
+          </a>
+        </li>
+
+        <li>
+          <a href="https://drive.google.com/file/d/1KsdhXym0PwcxdQ9o2XrEMthRI4Qnbu4Z/view" class="projeto" target="_blank" rel="noopener">
+            <span class="projeto-capa video">
+              <img src="imagens/Anuncio - Licor.png" alt="Capa do vídeo">
+            </span>
+            <span class="projeto-info">
+              <span class="projeto-ano">2024</span>
+              <span class="projeto-nome">LICOR</span>
+              <span class="projeto-desc">Anuncio produzido para a apresentação de um licor da AEML em Espinho.</span>
+              <span class="projeto-tags">Vídeo, Edição</span>
+            </span>
+          </a>
+        </li>
+
+      </ul>
+    </section>
+
+<!-- ============ FOTOS E DESENHOS ============ -->
+    <section id="fotos-e-desenhos" class="secao">
+      <h2>Fotos e desenhos</h2>
+      <div class="links-grandes">
+        <a href="https://drive.google.com/file/d/1bcUT3GwPpYhbqMY4ImH2t2EoPuLAULzm/view" target="_blank" rel="noopener">Fotos</a>
+        <a href="TROQUE_PELO_LINK_DOS_DESENHOS" target="_blank" rel="noopener">Desenhos</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="rodape">
+    <p>© 2026 Gustavo Ribeiro Thon</p>
+  </footer>
+
+  <!-- Barra de progresso com o personagem -->
+  <div class="progresso" aria-hidden="true">
+    <div class="progresso-fill"></div>
+    <div class="personagem" data-dir="frente"></div>
+  </div>
+
+</body>
+</html>
