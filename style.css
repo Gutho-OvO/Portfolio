@@ -1,0 +1,437 @@
+/* ===== Cores e tipos de letra: muda aqui para personalizar ===== */
+:root {
+  --fundo: #f1f3ee;
+  --texto: #1b2338;
+  --suave: #5b6378;
+  --linha: #cfd4cb;
+  --destaque: #2f4bff;
+  --destaque-texto: #ffffff;
+  --realce: #f3d36b;
+
+  --titulos: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --corpo: "Newsreader", Georgia, "Times New Roman", serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fundo: #141a2b;
+    --texto: #eceff6;
+    --suave: #9aa3ba;
+    --linha: #2c3550;
+    --destaque: #8c9bff;
+    --destaque-texto: #141a2b;
+    --realce: #f3d36b;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--fundo);
+  color: var(--texto);
+  font-family: var(--corpo);
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+a { color: inherit; }
+
+a:focus-visible {
+  outline: 3px solid var(--destaque);
+  outline-offset: 3px;
+}
+
+h1, h2 {
+  font-family: var(--titulos);
+  line-height: 1.02;
+  margin: 0;
+}
+
+/* ===== Topo ===== */
+.topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 1.25rem clamp(1.25rem, 5vw, 4rem);
+}
+
+.logo {
+  font-family: var(--titulos);
+  font-weight: 800;
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+
+.topo nav { display: flex; gap: 1.5rem; }
+
+.topo nav a {
+  font-family: var(--titulos);
+  font-weight: 500;
+  font-size: 1rem;
+  text-decoration: none;
+  color: var(--suave);
+}
+
+.topo nav a:hover { color: var(--texto); }
+
+/* ===== Secções ===== */
+main { padding: 0 clamp(1.25rem, 5vw, 4rem); }
+
+.secao {
+  padding: 5rem 0;
+  border-top: 1px solid var(--linha);
+}
+
+.secao h2 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  margin-bottom: 2.5rem;
+}
+
+/* ===== Hero ===== */
+.hero { padding: clamp(3rem, 9vw, 7rem) 0 clamp(4rem, 9vw, 6rem); }
+
+.hero h1 {
+  font-size: clamp(3.2rem, 12vw, 9rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  background-image: linear-gradient(var(--realce), var(--realce));
+  background-repeat: no-repeat;
+  background-size: 0% 0.18em;
+  background-position: 0 92%;
+  display: inline;
+  animation: sublinhar 0.9s 0.3s ease-out forwards;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+@keyframes sublinhar { to { background-size: 100% 0.18em; } }
+
+.hero-texto {
+  max-width: 34rem;
+  margin: 2.5rem 0;
+  font-size: 1.4rem;
+  color: var(--suave);
+}
+
+.botao {
+  display: inline-block;
+  background: var(--destaque);
+  color: var(--destaque-texto);
+  font-family: var(--titulos);
+  font-weight: 500;
+  text-decoration: none;
+  padding: 0.85rem 1.6rem;
+  border-radius: 999px;
+}
+
+.botao:hover { filter: brightness(1.1); }
+
+/* ===== Projetos ===== */
+.lista-projetos { list-style: none; margin: 0; padding: 0; }
+
+.lista-projetos li { border-top: 1px solid var(--linha); }
+.lista-projetos li:last-child { border-bottom: 1px solid var(--linha); }
+
+.projeto {
+  display: grid;
+  grid-template-columns: minmax(0, 18rem) 1fr;
+  gap: 1.5rem 2rem;
+  align-items: center;
+  padding: 1.75rem 0;
+  text-decoration: none;
+}
+
+.projeto-capa {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  background: var(--linha);
+}
+
+.projeto-capa img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.projeto:hover .projeto-capa img { transform: scale(1.04); }
+
+/* Botão de play por cima da capa dos vídeos */
+.projeto-capa.video::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 3.25rem;
+  height: 3.25rem;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: rgba(20, 26, 43, 0.72);
+}
+
+.projeto-capa.video::after {
+  content: "";
+  position: absolute;
+  left: calc(50% + 0.15rem);
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-left: 0.9rem solid #fff;
+  border-top: 0.55rem solid transparent;
+  border-bottom: 0.55rem solid transparent;
+}
+
+.projeto-info { display: flex; flex-direction: column; gap: 0.35rem; }
+
+.projeto-ano { color: var(--suave); }
+
+.projeto-nome {
+  font-family: var(--titulos);
+  font-weight: 800;
+  font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+  line-height: 1.1;
+}
+
+.projeto:hover .projeto-nome { color: var(--destaque); }
+
+.projeto-desc { color: var(--suave); max-width: 36rem; }
+
+.projeto-tags { color: var(--suave); font-style: italic; }
+
+@media (max-width: 720px) {
+  .projeto { grid-template-columns: 1fr; gap: 1rem; }
+}
+
+/* ===== Sobre ===== */
+.sobre-corpo {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 3rem;
+}
+
+.sobre-corpo p { margin: 0 0 1.25rem; max-width: 36rem; }
+
+.competencias { margin: 0; }
+
+.competencias dt {
+  font-family: var(--titulos);
+  font-weight: 800;
+  margin-top: 1.25rem;
+}
+
+.competencias dt:first-child { margin-top: 0; }
+.competencias dd { margin: 0; color: var(--suave); }
+
+/* ===== Contacto ===== */
+.email {
+  font-family: var(--titulos);
+  font-weight: 800;
+  font-size: clamp(1.6rem, 6vw, 4rem);
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.15em;
+  text-decoration-color: var(--realce);
+  word-break: break-word;
+}
+
+.email:hover { text-decoration-color: var(--destaque); }
+
+.redes { display: flex; gap: 1.5rem; margin-top: 2rem; }
+
+/* ===== Rodapé ===== */
+.rodape {
+  padding: 2rem clamp(1.25rem, 5vw, 4rem);
+  color: var(--suave);
+  font-size: 1rem;
+  border-top: 1px solid var(--linha);
+}
+
+.rodape p { margin: 0; }
+
+/* ===== Telemóvel ===== */
+@media (max-width: 720px) {
+  .sobre-corpo { grid-template-columns: 1fr; gap: 2rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .hero h1 { animation: none; background-size: 100% 0.18em; }
+  .projeto-capa img { transition: none; }
+}
+
+/* ===== Programas ===== */
+.programas {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+  gap: 2rem 1.5rem;
+  max-width: 44rem;
+}
+
+.programas li { display: flex; flex-direction: column; align-items: flex-start; }
+
+.icone {
+  display: grid;
+  place-items: center;
+  width: 6rem;
+  height: 6rem;
+  border-radius: 1.4rem;
+  font-family: var(--titulos);
+  font-weight: 800;
+  font-size: 2.4rem;
+  letter-spacing: -0.02em;
+}
+
+.barra {
+  width: 6rem;
+  height: 0.6rem;
+  margin-top: 0.6rem;
+  border-radius: 999px;
+}
+
+.programa-nome {
+  margin-top: 0.6rem;
+  font-family: var(--titulos);
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.icone.pr { background: #00005b; color: #9999ff; }
+.barra.pr { background: #9999ff; }
+.icone.dv { background: #26262b; color: #f2f2f2; }
+.barra.dv { background: #ff6b57; }
+.icone.ps { background: #001e36; color: #31a8ff; }
+.barra.ps { background: #31a8ff; }
+.icone.ai { background: #330000; color: #ff9a00; }
+.barra.ai { background: #ff9a00; }
+
+/* ===== Hobby ===== */
+.hobby-corpo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+
+.hobby-item h3 {
+  font-family: var(--titulos);
+  font-weight: 800;
+  font-size: 1.5rem;
+  margin: 0 0 0.75rem;
+}
+
+.hobby-item p { margin: 0; max-width: 30rem; color: var(--suave); }
+
+@media (max-width: 720px) {
+  .hobby-corpo { grid-template-columns: 1fr; gap: 2rem; }
+}
+
+/* ===== Barra de progresso na lateral direita, com o Newt a descer ===== */
+.progresso {
+  --s: 3px;                       /* tamanho de cada pixel do desenho */
+  --larg: calc(18 * var(--s));
+  --alt: calc(22 * var(--s));
+  --folga: 1rem;                  /* distância às bordas da tela */
+  position: fixed;
+  top: var(--folga);
+  bottom: var(--folga);
+  right: calc(var(--larg) / 2 + var(--folga) - 0.2rem);
+  width: 0.4rem;
+  border-radius: 999px;
+  background: var(--linha);
+  z-index: 20;
+  pointer-events: none;
+}
+
+.progresso-fill {
+  width: 100%;
+  height: calc(var(--p, 0) * (100% - var(--alt)) + var(--alt) / 2);
+  border-radius: 999px;
+  background: var(--destaque);
+}
+
+.personagem {
+  --linha-sprite: 0;              /* 0 parado de frente, 1 parado de costas, 2 e 3 a andar */
+  position: absolute;
+  left: calc(50% - var(--larg) / 2);
+  top: calc((100% - var(--alt)) * var(--p, 0));
+  width: var(--larg);
+  height: var(--alt);
+  background: url("imagens/newt.png") no-repeat;
+  background-size: calc(4 * var(--larg)) calc(4 * var(--alt));
+  background-position: 0 calc(var(--linha-sprite) * var(--alt) * -1);
+  image-rendering: pixelated;
+}
+
+.personagem[data-dir="costas"] { --linha-sprite: 1; }
+.personagem.andando { --linha-sprite: 2; }
+.personagem.andando[data-dir="costas"] { --linha-sprite: 3; }
+
+.personagem.andando {
+  animation: andar 0.5s steps(4) infinite;
+}
+
+@keyframes andar {
+  from { background-position-x: 0; }
+  to   { background-position-x: calc(var(--larg) * -4); }
+}
+
+/* Deixa espaço à direita para o personagem não tapar o texto */
+.topo, main, .rodape { padding-right: max(clamp(1.25rem, 5vw, 4rem), 6rem); }
+
+@media (max-width: 720px) {
+  .progresso { --s: 2px; }
+  .topo, main, .rodape { padding-right: 4.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .personagem.andando { animation: none; --linha-sprite: 0; }
+  .personagem.andando[data-dir="costas"] { --linha-sprite: 1; }
+}
+
+/* ===== Logos dos programas ===== */
+.icone { position: relative; overflow: hidden; }
+
+.icone img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Quando o logo existe, esconde a sigla e o fundo colorido */
+.programas .icone:has(img) { background: transparent; color: transparent; }
+
+/* ===== Link para mais projetos ===== */
+#projetos { padding-bottom: 0; }
+
+.mais-projetos {
+  margin: 0;
+  padding: 1.5rem 0;
+  text-align: center;
+  font-size: clamp(1.6rem, 4vw, 2.5rem);
+  line-height: 1.2;
+}
+
+.mais-projetos a {
+  font-family: var(--titulos);
+  font-weight: 800;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.2em;
+  text-decoration-color: var(--realce);
+}
+
+.mais-projetos a:hover {
+  color: var(--destaque);
+  text-decoration-color: var(--destaque);
+}
